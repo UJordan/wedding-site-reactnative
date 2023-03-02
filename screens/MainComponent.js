@@ -2,14 +2,64 @@ import { StyleSheet, View, Text, Button } from 'react-native';
 // import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import 'react-native-gesture-handler';
 import HomeScreen from './HomeScreen';
+import ProfileScreen from './ProfileScreen';
 import InfoScreen from './InfoScreen';
 import ReservationScreen from './ReservationScreen';
 import ContactScreen from './ContactScreen.js';
 import CustomDrawer from '../components/CustomDrawer';
 
-// Page for Navigation
+const Drawer = createDrawerNavigator();
+
+const Main = () => {
+    return (
+        <NavigationContainer>
+            <Drawer.Navigator 
+                drawerContent={props => <CustomDrawer {...props} />} 
+                initialRouteName='Home' 
+                screenOptions={{
+                    headerShown: true, 
+                    drawerActiveBackgroundColor: '#b8c5d1',
+                    drawerActiveTintColor: '#fff',
+                    drawerInactiveTintColor: '#3333',
+                    drawerLabelStyle: {
+                        marginLeft: -50,
+                        fontSize: 20
+                    }
+                }}
+            >
+                <Drawer.Screen name="Home" component={HomeScreen} options={{
+                    drawerIcon: ({color}) => (
+                        <Ionicons name='home' size={22} color={color} />
+                    )
+                }} />
+                <Drawer.Screen name="Profile" component={ProfileScreen} options={{
+                    drawerIcon: ({color}) => (
+                        <FontAwesome5 name='user' size={22} color={color} />
+                    )
+                }} />
+                <Drawer.Screen name="Information" component={InfoScreen} options={{
+                    drawerIcon: ({color}) => (
+                        <FontAwesome5 name='info-circle' size={22} color={color} />
+                    )
+                }}/>
+                <Drawer.Screen name="Reservation" component={ReservationScreen} options={{
+                    drawerIcon: ({color}) => (
+                        <FontAwesome5 name='calendar-check' size={22} color={color} />
+                    )
+                }}/>
+                <Drawer.Screen name="Contact" component={ContactScreen} options={{
+                    drawerIcon: ({color}) => (
+                        <FontAwesome5 name='envelope-open-text' size={22} color={color} />
+                    )
+                }}/>
+            </Drawer.Navigator>
+        </NavigationContainer>
+    )
+}
 
 // const screenOptions = {
 //     headerTintColor: '#fff',
@@ -42,21 +92,6 @@ import CustomDrawer from '../components/CustomDrawer';
 //         </Stack.Navigator>
 //     )
 // }
-
-const Drawer = createDrawerNavigator();
-
-const Main = () => {
-    return (
-        <NavigationContainer>
-            <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />} initialRouteName='Home' screenOptions={{headerShown: true}}>
-                <Drawer.Screen name="Home" component={HomeScreen} />
-                <Drawer.Screen name="Information" component={InfoScreen} />
-                <Drawer.Screen name="Reservation" component={ReservationScreen} />
-                <Drawer.Screen name="Contact" component={ContactScreen} />
-            </Drawer.Navigator>
-        </NavigationContainer>
-    )
-}
 
 // const styles = StyleSheet.create({
 //     container: {
