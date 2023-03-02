@@ -20,6 +20,7 @@ const Main = () => {
             <Drawer.Navigator 
                 drawerContent={props => <CustomDrawer {...props} />} 
                 initialRouteName='Home' 
+                // Ask Why these screen options are not being applied
                 screenOptions={{
                     headerShown: true, 
                     drawerActiveBackgroundColor: '#b8c5d1',
