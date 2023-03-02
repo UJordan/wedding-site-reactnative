@@ -6,9 +6,11 @@ import Main from './screens/MainComponent';
 
 export default function App() {
   return (
-    <NavigationContainer>
-        <Main />
+    <>
+      <Main />
+      <View>
         <StatusBar style='auto' />
-    </NavigationContainer>
-  )
-}
+      </View>
+    </>
+  );
+};

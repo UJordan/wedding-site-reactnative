@@ -1,15 +1,16 @@
-import { StyleSheet, View, Text } from 'react-native';
-// import HomeScreen from './HomeScreen';
-
-// Page for Navigation
+import { StyleSheet, View, Button, Text } from 'react-native';
 
 const HomeScreen = () => {
     return (
-        <View>
-            <Text>Home Screen</Text>
+        <View style={styles.container}>
+            <Text>This Is The Home Screen</Text>
+            <Button title='Button'></Button>
+            <Button title='Button'></Button>
+            <Button title='Button'></Button>
+            <Button title='Button'></Button>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {

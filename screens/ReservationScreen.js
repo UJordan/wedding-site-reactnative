@@ -1,9 +1,9 @@
 import { StyleSheet, View, Text } from 'react-native';
 
-const InfoScreen = () => {
+const ReservationScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>This Is The Info Screen</Text>
+            <Text>This Is The Reservation Screen</Text>
         </View>
     )
 }
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default InfoScreen;
+export default ReservationScreen;
