@@ -3,10 +3,10 @@ import { StyleSheet, View, Text } from 'react-native';
 
 // Page for Navigation
 
-const HomeScreen = () => {
+const InfoScreen = () => {
     return (
         <View>
-            <Text>Home Screen</Text>
+            <Text>Info Screen</Text>
         </View>
     )
 }
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default HomeScreen;
+export default InfoScreen;
