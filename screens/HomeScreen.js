@@ -5,20 +5,18 @@ const HomeScreen = () => {
         <View>
             <Text>This Is The Home Screen</Text>
             <Button title='Button'></Button>
-            <Button title='Button'></Button>
-            <Button title='Button'></Button>
-            <Button title='Button'></Button>
+
         </View>
     );
 };
 
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       backgroundColor: '#fff',
-//       alignItems: 'center',
-//       justifyContent: 'center',
-//     },
-//   });
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
 
 export default HomeScreen;

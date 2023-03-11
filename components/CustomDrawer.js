@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ImageBackground, Image } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
-const CustomDrawer = props => {
+    const CustomDrawer = props => {
     return (
         <View style={{ flex:1 }}>
             <DrawerContentScrollView {...props} contentContainerStyle={{  }}>
