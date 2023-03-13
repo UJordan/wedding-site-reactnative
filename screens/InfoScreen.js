@@ -8,19 +8,19 @@ const InfoScreen = () => {
         <View style={styles.container}>
           <View style={styles.ceremony}>
             <Text>Ceremony & Celebration</Text>
-              <View style={styles.secondaryContainer}>
-                <FontAwesome5 name='calendar-check' size={30} />
-                <Text>Our Wedding Day</Text>
-                <Text>Please join us on September 10, 2023 to celebrate our special day</Text>
-              </View>
-              <View style={styles.secondaryContainer}>
-              <FontAwesome5 name='map-marked' size={30} />
-                <Text>Some Wedding Venue</Text>
-                <Text>123 S Wedding Rd, Anaheim, CA 12345</Text>
-              </View>
-              <View style={styles.secondaryContainer}>
-                <Image source={require('../assets/images/SummitHouseFullerton.jpeg')} style={{height: 200, width: 375, borderRadius: 7 }}/>
-              </View>
+            <View style={styles.secondaryContainer}>
+              <FontAwesome5 name='calendar-check' size={30} />
+              <Text>Our Wedding Day</Text>
+              <Text>Please join us on September 10, 2023 \n to celebrate our special day</Text>
+            </View>
+            <View style={styles.secondaryContainer}>
+            <FontAwesome5 name='map-marked' size={30} />
+              <Text>Some Wedding Venue</Text>
+              <Text>123 S Wedding Rd, Anaheim, CA 12345</Text>
+            </View>
+            <View style={styles.secondaryContainer}>
+              <Image source={require('../assets/images/SummitHouseFullerton.jpeg')} style={{height: 200, width: 375, borderRadius: 7 }}/>
+            </View>
           </View>
         </View>
         </ScrollView>

@@ -16,7 +16,7 @@ import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawe
                     </View>
                 </View>
                 {/* </ImageBackground> */}
-                <View style={{ flex:1, backgroundColor: '#fff', paddingTop: 10}}>
+                <View style={{ backgroundColor: '#fff', paddingTop: 10}}>
                     <DrawerItemList {...props} />
                 </View>
             </DrawerContentScrollView>

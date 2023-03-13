@@ -19,16 +19,15 @@ const Main = () => {
         <Drawer.Navigator 
             drawerContent={props => <CustomDrawer {...props} />} 
             initialRouteName='Home' 
-            // Ask Why these screen options are not being applied / and how to edit header
             screenOptions={{
                 headerShown: true, 
-                drawerActiveBackgroundColor: '#b8c5d1',
-                drawerActiveTintColor: '#fff',
-                drawerInactiveTintColor: '#3333',
-                drawerLabelStyle: {
-                    marginLeft: -50,
-                    fontSize: 20
-                }
+                // drawerActiveBackgroundColor: '#b8c5d1',
+                // drawerActiveTintColor: '#fff',
+                // drawerInactiveTintColor: '#3333',
+                // drawerLabelStyle: {
+                //     marginLeft: -50,
+                //     fontSize: 20
+                // }
             }}
         >
             <Drawer.Screen name="Home" component={HomeScreen} options={{

@@ -1,5 +1,7 @@
 import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 import { Button } from 'react-native-elements';
+import CountdownTimer from '../components/CountdownTimer';
+import RsvpButton from '../components/rsvpButton';
 
 
 const HomeScreen = () => {
@@ -9,10 +11,11 @@ const HomeScreen = () => {
           <View>
             <Image source={require('../assets/images/CJ1.jpeg')} style={{height: 300, width: 400}}  />
           </View>
-          <View styles={{alignItems: 'center', justifyContent: 'center', paddingTop: 30}}>
-            <Text>Our Story</Text>
+          <CountdownTimer />
+          <RsvpButton style={{}} title='RSVP NOW'></RsvpButton>
+          <View style={{ paddingTop: 30, }}>
+            <Text style={{ fontSize: 20 }}>Our Story</Text>
           </View>
-            <Button title='RSVP'></Button>
         </View>
       </ScrollView>
     );
