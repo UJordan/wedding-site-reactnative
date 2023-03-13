@@ -2,8 +2,17 @@ import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 import { CheckBox, Input, Button, Icon } from 'react-native-elements';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { LinearGradient } from 'expo-linear-gradient';
+// import Carousel from 'react-native-snap-carousel';
+// import { engagementPics } from '../shared/projectPhotos';
 
 const InfoScreen = () => {
+  const renderBanner = ({ item, index }) => {
+    return (
+        <BannerSlider data={item} />
+    );
+  };
+
+
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -29,6 +38,14 @@ const InfoScreen = () => {
                 <Image source={require('../assets/images/SummitHouseFullerton.jpeg')} style={{height: 200, width: 375, borderRadius: 7 }}/>
               </View>
             </View>
+            {/* <Carousel 
+                    ref={(c) => { this._carousel = c; }}
+                    data={engagementPics}
+                    renderItem={renderBanner}
+                    sliderWidth={windowWidth}
+                    itemWidth={300}
+                    loop={true}
+                /> */}
           </LinearGradient>
         </View>
         </ScrollView>
