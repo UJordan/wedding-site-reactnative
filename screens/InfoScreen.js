@@ -7,11 +7,11 @@ const InfoScreen = () => {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.ceremony}>
-            <Text>Ceremony & Celebration</Text>
+            <Text style={{fontSize: 20}}>Ceremony & Celebration</Text>
             <View style={styles.secondaryContainer}>
               <FontAwesome5 name='calendar-check' size={30} />
               <Text>Our Wedding Day</Text>
-              <Text>Please join us on September 10, 2023 \n to celebrate our special day</Text>
+              <Text styles={styles.information}>Please join us on September 10, 2023 to celebrate our special day</Text>
             </View>
             <View style={styles.secondaryContainer}>
             <FontAwesome5 name='map-marked' size={30} />
@@ -41,14 +41,14 @@ const styles = StyleSheet.create({
     },
     information: {
       paddingTop: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
     },
     secondaryContainer: {
       alignItems: 'center',
       justifyContent: 'center',
       paddingTop: 20,
-      paddingBottom: 20
+      paddingBottom: 20,
+      marginLeft: 40,
+      marginRight: 40
     }
   });
 

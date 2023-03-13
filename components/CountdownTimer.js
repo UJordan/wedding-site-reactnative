@@ -47,21 +47,24 @@ const CountdownTimer = () => {
         <ScrollView>
             <View style={styles.container} >
                 <View style={styles.border}>
-                    <View style={styles.spacing}>
-                        <Text style={styles.text}>{timerDays} : </Text>
-                        <Text style={styles.subText}> Days </Text>
-                    </View>
                     <View>
-                        <Text style={styles.text}>{timerHours} : </Text>
-                        <Text style={styles.subText}> Hrs </Text>
+                        <Text style={styles.text}>{timerDays}</Text>
+                        <Text style={styles.subText}>Days</Text>
                     </View>
+                    <Text style={styles.spacing}>:</Text>
                     <View>
-                        <Text style={styles.text}>{timerMinutes} : </Text>
-                        <Text style={styles.subText}> Mins </Text>
+                        <Text style={styles.text}>{timerHours}</Text>
+                        <Text style={styles.subText}>Hrs</Text>
                     </View>
+                    <Text style={styles.spacing}>:</Text>
                     <View>
+                        <Text style={styles.text}>{timerMinutes}</Text>
+                        <Text style={styles.subText}>Mins</Text>
+                    </View>
+                    <Text style={styles.spacing}>:</Text>
+                    <View> 
                         <Text style={styles.text}>{timerSeconds}</Text>
-                        <Text style={styles.subText}> Secs </Text>
+                        <Text style={styles.subText}>Secs</Text>
                     </View>
                 </View>
             </View>
@@ -78,22 +81,27 @@ const styles = StyleSheet.create({
         
         // borderRadius: 50,
     },
-    spacing: {
-        
-    },
     border: {
         borderWidth: 1,
         borderColor: "thistle",
         flexDirection: 'row',
         paddingLeft: 30,
         paddingRight: 30,
-        justifyContent: 'space-between'
+        paddingTop: 10,
+        paddingBottom: 10,
+        
+    },
+    spacing: {
+        fontSize: 20,
     },
     subText: {
         fontSze: 10,
+        marginLeft: 25,
     },
     text: {
         fontSize: 20,
+        marginLeft: 23,
+        marginRight: 23,
     },
   });
 
