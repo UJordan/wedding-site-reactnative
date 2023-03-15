@@ -19,10 +19,10 @@ export const engagementPics = [
         title:"Picture 5",
         image: require("../assets/images/CJ5.jpeg"),
     },
-    {
-        title:"Picture 6",
-        image: require("../assets/images/CJ6.jpeg"),
-    },
+    // {
+    //     title:"Picture 6",
+    //     image: require("../assets/images/CJ6.jpeg"),
+    // },
     {
         title:"Picture 7",
         image: require("../assets/images/CJ7.jpeg"),
@@ -43,10 +43,10 @@ export const engagementPics = [
         title:"Picture 11",
         image: require("../assets/images/CJ11.jpeg"),
     },
-    {
-        title:"Picture 12",
-        image: require("../assets/images/CJ12.jpeg"),
-    }
+    // {
+    //     title:"Picture 12",
+    //     image: require("../assets/images/CJ12.jpeg"),
+    // }
 ];
 
 export const utilPics = [

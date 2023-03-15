@@ -1,9 +1,10 @@
-import { StyleSheet, View, Text } from 'react-native';
+import Carousel from '../components/carousel';
+import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
 
-const ProfileScreen = () => {
+const Gallery = () => {
     return (
         <View style={styles.container}>
-            <Text>This Is The Info Screen</Text>
+            <Carousel />
         </View>
     )
 }
@@ -17,4 +18,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default ProfileScreen;
+export default Gallery;

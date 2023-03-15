@@ -6,10 +6,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import 'react-native-gesture-handler';
 import HomeScreen from './HomeScreen';
-import ProfileScreen from './ProfileScreen';
+import ContactScreen from './ContactScreen';
 import InfoScreen from './InfoScreen';
 import ReservationScreen from './ReservationScreen';
-import ContactScreen from './ContactScreen.js';
+import Gallery from './Gallery.js';
 import CustomDrawer from '../components/CustomDrawer';
 
 const Drawer = createDrawerNavigator();
@@ -35,9 +35,9 @@ const Main = () => {
                     <Ionicons name='home' size={22} color={color} />
                 )
             }} />
-            <Drawer.Screen name="Profile" component={ProfileScreen} options={{
+            <Drawer.Screen name="Contact" component={ContactScreen} options={{
                 drawerIcon: ({color}) => (
-                    <FontAwesome5 name='user' size={22} color={color} />
+                    <FontAwesome5 name='envelope-open-text' size={22} color={color} />
                 )
             }} />
             <Drawer.Screen name="Information" component={InfoScreen} options={{
@@ -50,9 +50,9 @@ const Main = () => {
                     <FontAwesome5 name='calendar-check' size={22} color={color} />
                 )
             }}/>
-            <Drawer.Screen name="Contact" component={ContactScreen} options={{
+            <Drawer.Screen name="Gallery" component={Gallery} options={{
                 drawerIcon: ({color}) => (
-                    <FontAwesome5 name='envelope-open-text' size={22} color={color} />
+                    <FontAwesome5 name='images' size={22} color={color} />
                 )
             }}/>
         </Drawer.Navigator>
