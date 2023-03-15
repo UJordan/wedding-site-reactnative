@@ -35,11 +35,6 @@ const Main = () => {
                     <Ionicons name='home' size={22} color={color} />
                 )
             }} />
-            <Drawer.Screen name="Contact" component={ContactScreen} options={{
-                drawerIcon: ({color}) => (
-                    <FontAwesome5 name='envelope-open-text' size={22} color={color} />
-                )
-            }} />
             <Drawer.Screen name="Information" component={InfoScreen} options={{
                 drawerIcon: ({color}) => (
                     <FontAwesome5 name='info-circle' size={22} color={color} />
@@ -55,6 +50,11 @@ const Main = () => {
                     <FontAwesome5 name='images' size={22} color={color} />
                 )
             }}/>
+            <Drawer.Screen name="Contact" component={ContactScreen} options={{
+                drawerIcon: ({color}) => (
+                    <FontAwesome5 name='envelope-open-text' size={22} color={color} />
+                )
+            }} />
         </Drawer.Navigator>
     )
 }

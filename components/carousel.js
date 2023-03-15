@@ -33,7 +33,6 @@ const Carousel = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
       <Animated.FlatList 
         data={data}
         keyExtractor={(item) => item.key}
