@@ -19,10 +19,10 @@ export const engagementPics = [
         title:"Picture 5",
         image: require("../assets/images/CJ5.jpeg"),
     },
-    // {
-    //     title:"Picture 6",
-    //     image: require("../assets/images/CJ6.jpeg"),
-    // },
+    {
+        title:"Picture 6",
+        image: require("../assets/images/CJ6.jpg"),
+    },
     {
         title:"Picture 7",
         image: require("../assets/images/CJ7.jpeg"),
