@@ -1,27 +1,28 @@
 import * as React from 'react';
 import { Animated, Dimensions, Image, FlatList, Text, View, StyleSheet } from 'react-native';
-import CJ2 from '../assets/images/CJ2.jpeg';
-import CJ3 from '../assets/images/CJ3.jpeg';
-import CJ4 from '../assets/images/CJ4.jpeg';
-import CJ5 from '../assets/images/CJ5.jpeg';
-import CJ6 from '../assets/images/CJ6.jpg';
-import CJ7 from '../assets/images/CJ7.jpeg';
-import CJ8 from '../assets/images/CJ8.jpeg';
-import CJ9 from '../assets/images/CJ9.jpeg';
-import CJ10 from '../assets/images/CJ10.jpeg';
-import CJ11 from '../assets/images/CJ11.jpeg';
+// import CJ2 from '../assets/images/CJ2.jpeg';
+// import CJ3 from '../assets/images/CJ3.jpeg';
+// import CJ4 from '../assets/images/CJ4.jpeg';
+// import CJ5 from '../assets/images/CJ5.jpeg';
+// import CJ6 from '../assets/images/CJ6.jpg';
+// import CJ7 from '../assets/images/CJ7.jpeg';
+// import CJ8 from '../assets/images/CJ8.jpeg';
+// import CJ9 from '../assets/images/CJ9.jpeg';
+// import CJ10 from '../assets/images/CJ10.jpeg';
+// import CJ11 from '../assets/images/CJ11.jpeg';
+import { engagementPics } from '../shared/projectPhotos';
 
 const { width, height } = Dimensions.get('screen');
-const ITEM_WIDTH = width * 0.96;
+const ITEM_WIDTH = width * 0.95;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.80;
 
-const images = [
-  CJ2, CJ3, CJ4, CJ5, CJ6, CJ7, CJ8, CJ9, CJ10, CJ11
-];
+// const images = [
+//   CJ2, CJ3, CJ4, CJ5, CJ6, CJ7, CJ8, CJ9, CJ10, CJ11
+// ];
 
-const data = images.map((image, index) => ({
+const data = engagementPics.map((image, index) => ({
   key: String(index),
-  photo: image
+  photo: image.image
 }));
 
 const Carousel = () => {
@@ -81,7 +82,7 @@ const Carousel = () => {
                   <Animated.Image 
                     source={item.photo} 
                     style={{ 
-                      width: ITEM_WIDTH * 1.1, 
+                      width: ITEM_WIDTH * 1, 
                       height: ITEM_HEIGHT, 
                       resizeMode: 'cover',
                       transform: [
