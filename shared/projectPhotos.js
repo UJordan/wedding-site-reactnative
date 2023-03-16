@@ -43,10 +43,6 @@ export const engagementPics = [
         title:"Picture 11",
         image: require("../assets/images/CJ11.jpeg"),
     },
-    // {
-    //     title:"Picture 12",
-    //     image: require("../assets/images/CJ12.jpeg"),
-    // }
 ];
 
 export const utilPics = [
