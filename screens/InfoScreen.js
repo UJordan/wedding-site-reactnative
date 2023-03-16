@@ -1,14 +1,81 @@
-import { View, StyleSheet, ScrollView, Image, Text, Dimensions, FlatList, Animated } from 'react-native';
-import { CheckBox, Input, Button, Icon } from 'react-native-elements';
+import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
+import { Button, Icon, Card, ListItem } from 'react-native-elements';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { LinearGradient } from 'expo-linear-gradient';
-import Carousel from '../components/carousel';
+// import { utilPics } from '../shared/projectPhotos';
+// import SummitHouseFullerton from '../assets/images/SummitHouseFullerton.jpeg';
+import RsvpButton from '../components/rsvpButton';
 
-const InfoScreen = () => {
+const InfoScreen = (props) => {
+  // const { item } = props;
 
-    return (
-      <ScrollView>
-        <LinearGradient 
+  // const data = utilPics.map((image, index) => ({
+  //   key: String(index),
+  //   photo: image.image
+  // }));
+
+  return (
+    <ScrollView>
+      <LinearGradient 
+            colors={['#b8c5d1', 'white', '#b8c5d1']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          >
+      <Card>
+        <Card.Title>Ceremony & Celebration</Card.Title>
+        <Card.Image source={require('../assets/images/SummitHouseFullerton.jpeg')}>
+        </Card.Image>
+        <Text style={styles.parentText}>August 19, 2023</Text>
+            <Text style={styles.childText}>2000 E Bastanchury Rd, Fullerton, CA 92835</Text>
+        <View style={styles.button}>
+          <RsvpButton title='RSVP NOW'></RsvpButton>
+        </View>
+      </Card>
+      <Card>
+        <Card.Title>Acommodations</Card.Title>
+        <Card.Image source={require('../assets/images/hotel.jpeg')}>
+        </Card.Image>
+        <Text style={styles.parentText}>Places to stay</Text>
+            <Text style={styles.childText}>follow the link to book a place nearby</Text>
+        <View style={styles.button}>
+          <RsvpButton title='Book'></RsvpButton>
+        </View>
+      </Card>
+      <Card>
+        <Card.Title>Please check out our registry!</Card.Title>
+        <Card.Image source={require('../assets/images/gift.jpeg')}>
+        </Card.Image>
+        <Text style={styles.parentText}>Click to see our registry</Text>
+        <View style={styles.button}>
+          <RsvpButton title='Registry'></RsvpButton>
+        </View>
+      </Card>
+      </LinearGradient>
+    </ScrollView>
+  )
+}
+
+const styles = StyleSheet.create({
+    parentText: {
+      color: 'black',
+      textAlign: 'center',
+      fontSize: 15,
+      marginTop: 10,
+    },
+    childText: {
+      color: 'black',
+      textAlign: 'center',
+      fontsize: 10,
+    },
+    button: {
+      marginTop: 10,
+      // paddingTop: 5
+    }
+  });
+
+export default InfoScreen;
+
+{/* <LinearGradient 
             colors={['#b8c5d1', 'white', '#b8c5d1']}
             style={styles.container}
             start={{ x: 0, y: 0 }}
@@ -32,30 +99,4 @@ const InfoScreen = () => {
             </View>
           </View>
         </View>
-        </LinearGradient>
-        </ScrollView>
-    )
-}
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    ceremony: {
-      alignItems: 'center',
-      paddingTop: 20,
-    },
-    information: {
-      paddingTop: 20,
-    },
-    secondaryContainer: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: 20,
-      paddingBottom: 20,
-      marginLeft: 40,
-      marginRight: 40
-    }
-  });
-
-export default InfoScreen;
+        </LinearGradient> */}

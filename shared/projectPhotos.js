@@ -49,17 +49,21 @@ export const utilPics = [
     {
         title: 'Gift',
         image: require("../assets/images/gift.jpeg"),
+        description: "Filler text"
     },
     {
         title: 'Hotel',
         image: require("../assets/images/hotel.jpeg"),
+        description: "Filler text"
     },
     {
         title: 'Picture 1',
         image: require("../assets/images/ring.jpeg"),
+        description: "Filler text"
     },
     {
         title: 'Summit House Fullerton',
         image: require("../assets/images/SummitHouseFullerton.jpeg"),
+        description: "Filler text"
     },
 ];
