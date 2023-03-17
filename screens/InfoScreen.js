@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Image, Text } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Text, Linking } from 'react-native';
 import { Button, Icon, Card, ListItem } from 'react-native-elements';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -6,13 +6,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 // import SummitHouseFullerton from '../assets/images/SummitHouseFullerton.jpeg';
 import RsvpButton from '../components/rsvpButton';
 
-const InfoScreen = (props) => {
-  // const { item } = props;
+const InfoScreen = ({ navigation }) => {
 
-  // const data = utilPics.map((image, index) => ({
-  //   key: String(index),
-  //   photo: image.image
-  // }));
+  const handlePressRsvp = () => {
+    navigation.navigate('Reservation', { screen: 'Reservation' })
+  };
 
   return (
     <ScrollView>
@@ -28,7 +26,7 @@ const InfoScreen = (props) => {
         <Text style={styles.parentText}>August 19, 2023</Text>
             <Text style={styles.childText}>2000 E Bastanchury Rd, Fullerton, CA 92835</Text>
         <View style={styles.button}>
-          <RsvpButton title='RSVP NOW'></RsvpButton>
+          <RsvpButton title='RSVP NOW' onPress={handlePressRsvp} />
         </View>
       </Card>
       <Card>
@@ -38,18 +36,20 @@ const InfoScreen = (props) => {
         <Text style={styles.parentText}>Places to stay</Text>
             <Text style={styles.childText}>follow the link to book a place nearby</Text>
         <View style={styles.button}>
-          <RsvpButton title='Book'></RsvpButton>
+          <RsvpButton title='Book' onPress={() => Linking.openURL('https://www.booking.com/')}/>
         </View>
       </Card>
+      <View style={{paddingBottom: 10, marginBottom: 10}}>
       <Card>
         <Card.Title>Please check out our registry!</Card.Title>
         <Card.Image source={require('../assets/images/gift.jpeg')}>
         </Card.Image>
         <Text style={styles.parentText}>Click to see our registry</Text>
         <View style={styles.button}>
-          <RsvpButton title='Registry'></RsvpButton>
+          <RsvpButton title='Registry' onPress={() => Linking.openURL('https://www.theknot.com/us/cassidy-takeuchi-and-jordan-ulves-aug-2023/registry')}/>
         </View>
       </Card>
+      </View>
       </LinearGradient>
     </ScrollView>
   )

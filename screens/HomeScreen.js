@@ -4,7 +4,12 @@ import CountdownTimer from '../components/CountdownTimer';
 import RsvpButton from '../components/rsvpButton';
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+
+  const handlePressRsvp = () => {
+    navigation.navigate('Reservation', { screen: 'Reservation' })
+  };
+
     return (
       <ScrollView styles={styles.container}>
         <View >
@@ -13,7 +18,7 @@ const HomeScreen = () => {
           </View>
           <CountdownTimer />
           <View style={{ paddingTop: 20}}>
-            <RsvpButton title='RSVP NOW'></RsvpButton>
+            <RsvpButton title='RSVP NOW' onPress={handlePressRsvp}></RsvpButton>
           </View>
           <View style={{ paddingTop: 20}}>
             <Text style={styles.textHeader}>Our Story</Text>

@@ -69,7 +69,10 @@ const InfoNavigator = () => {
 const ReservationNavigator = () => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
+    <Stack.Navigator
+      initialRouteName="Reservation"
+      screenOptions={screenOptions}
+    >
       <Stack.Screen
         name="Reservation"
         component={ReservationScreen}
@@ -178,6 +181,7 @@ const Main = () => {
           name="Reservation"
           component={ReservationNavigator}
           options={{
+            title: 'Reservation',
             drawerIcon: ({ color }) => (
               <FontAwesome5
                 name="calendar-check"
