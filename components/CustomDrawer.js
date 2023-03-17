@@ -1,30 +1,77 @@
 import React from 'react';
-import { View, Text, ImageBackground, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
-    const CustomDrawer = props => {
+const CustomDrawer = (props) => {
     return (
         <View style={{ flex:1 }}>
             <DrawerContentScrollView {...props} contentContainerStyle={{  }}>
                 {/* <ImageBackground> */}
-                <View style={{ flexDirection: 'row', backgroundColor: '#b8c5d1', }}>
-                    <Image source={require('../assets/images/CJ7.jpeg')} style={{ marginLeft:10, marginBottom: 10, marginTop: 10, height: 100, borderRadius: 7, width: 70}}/>
-                    <View style={{ marginLeft: 20, marginTop:25,}}>
-                        <Text style={{ color: '#fff' }}>Cassidy & Jordan</Text>
-                        <Text style={{ color: '#fff' }}>August 19, 2023 </Text>
-                        <Text style={{ color: '#fff' }}>Summit House Fullerton </Text>
+                <View style={styles.top}>
+                    <View style={{ flex: 1 }}>
+                        <View style={{ flex: 2 }}>
+                            <Image 
+                                source={require('../assets/images/CJ7.jpeg')}
+                                style={{ flex: 1, width: undefined, height: undefined }}
+                                resizeMode="contain"
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.textView}>
+                        <Text style={styles.text}>Cassidy & Jordan</Text>
+                        <Text style={styles.text}>August 19, 2023</Text>
+                        <Text style={styles.text}>Summit House Fullerton</Text>
                     </View>
                 </View>
                 {/* </ImageBackground> */}
-                <View style={{ backgroundColor: '#fff', paddingTop: 10}}>
-                    <DrawerItemList {...props} />
+                <View style={styles.list}>
+                    <DrawerItemList 
+                        {...props}
+                        activeBackgroundColor={'#b8c5d1'}
+                        activeTintColor={'#fff'}
+                        InactiveTintColor={'#3333'}
+                    />
                 </View>
             </DrawerContentScrollView>
-        <View style={{ padding:20, borderTopWidth:1, borderTopColor:'#ccc'}}>
-            <Text>Placeholder Text</Text>
-        </View>
+            <View style={styles.bottomContainer}>
+                <Text style={styles.bottomText}>Celebrate With Us!</Text>
+            </View>
         </View>
     );
 };
 
+const styles = StyleSheet.create({
+    top: {
+        flexDirection: 'row',
+        backgroundColor: '#b8c5d1',
+        height: 140,
+        margin: 10,
+    },
+    list: {
+        backgroundColor: '#fff',
+        paddingTop: 10,
+    },
+    textView: {
+        padding:20,
+        flex: 2,
+        justifyContent: 'center',
+    },
+    text: {
+        color: '#fff',
+    },
+    bottomContainer: {
+        paddingBottom: 20,
+        alignItems: 'center', // center horizontally
+        justifyContent: 'center', // center vertically
+    },
+    bottomText: {
+        fontSize: 24,
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+});
 export default CustomDrawer;
+
+    
+        
+        
