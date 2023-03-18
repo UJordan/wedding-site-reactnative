@@ -24,17 +24,33 @@ const InfoScreen = ({ navigation }) => {
         <Card.Image source={require('../assets/images/SummitHouseFullerton.jpeg')}>
         </Card.Image>
         <Text style={styles.parentText}>August 19, 2023</Text>
-            <Text style={styles.childText}>2000 E Bastanchury Rd, Fullerton, CA 92835</Text>
+        <Text style={styles.childText}>5:00 PM - 11:00 PM</Text>
+        <Text style={styles.childText}>2000 E Bastanchury Rd, Fullerton, CA 92835</Text>
+        <Text style={styles.childText}>Attire: Cocktail</Text>
         <View style={styles.button}>
           <RsvpButton title='RSVP NOW' onPress={handlePressRsvp} />
         </View>
       </Card>
       <Card>
+        <Card.Title>Additional Information & FAQs</Card.Title>
+        <Card.Image source={require('../assets/images/a20.jpg')}>
+        </Card.Image>
+        <Text style={styles.parentText}>WHERE SHOULD I PARK?</Text>
+        <Text style={styles.childText}>Both the ceremony and reception will be held at the Summit House Restaurant. Summit House offers complimentary valet parking. If you plan on taking advantage of the open bar, we encourage you to Uber/Lyft. Please get home safe!</Text>
+        <Text style={styles.parentText}>CAN I BRING A PLUS ONE?</Text>
+        <Text style={styles.childText}>You may bring a plus one if your wedding invitation is addressed to you "and Guest," you are allowed a plus one.</Text>
+        <Text style={styles.parentText}>ARE KIDS WELCOME?</Text>
+        <Text style={styles.childText}>We love your little ones, but we've decided to have an adults-only wedding, with the exception of a few family members. We're excited to celebrate with you and hope you enjoy a parents' night out!</Text>
+        <Text style={styles.parentText}>STILL HAVE MORE QUESTIONS?</Text>
+        <Text style={styles.childText}>Please feel free to reach out to the bride and groom at ulveswedding@gmail.com.</Text>
+      </Card>
+      <Card>
         <Card.Title>Acommodations</Card.Title>
         <Card.Image source={require('../assets/images/hotel.jpeg')}>
         </Card.Image>
-        <Text style={styles.parentText}>Places to stay</Text>
-            <Text style={styles.childText}>follow the link to book a place nearby</Text>
+        <Text style={styles.parentText}>Places to stay & Airports</Text>
+        <Text style={styles.childText}>{`John Wayne Airport (SNA) \n Ontario International Airport (ONT) \n Long Beach (LGB) \n Los Angeles International Airport (LAX)`}</Text>
+        <Text style={styles.childText}>follow the link to book a place nearby</Text>
         <View style={styles.button}>
           <RsvpButton title='Book' onPress={() => Linking.openURL('https://www.booking.com/')}/>
         </View>
@@ -66,6 +82,7 @@ const styles = StyleSheet.create({
       color: 'black',
       textAlign: 'center',
       fontsize: 10,
+      marginTop: 10
     },
     button: {
       marginTop: 10,
