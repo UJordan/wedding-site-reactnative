@@ -1,19 +1,47 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { StyleSheet, View, Text, Image, Alert } from "react-native";
 import { Input } from "react-native-elements";
 import { RadioButton } from "react-native-paper";
 import RsvpButton from "../components/rsvpButton";
+import axios from 'axios';
 
 const ReservationScreen = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
     const [value, setValue] = useState("yes");
 
+    const sendEmail = () => {
+        return(
+            axios.post('https://api.sendgrid.com/v3/mail/send', {
+                personalizations: [{
+                    to: [{ email: `${email}` }],
+                    subject: 'RSVP Confirmation'
+                }],
+                from: { email: 'jordanulves@gmail.com' },
+                content: [{ type: '', value: `Thank you for RSVPing, ${firstName} ${lastName}!` }]
+                }, {
+                headers: {
+                    Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+                    Content-Type:'application/json'
+                }
+                }).then(response => {
+                console.log('Email sent successfully');
+                }).catch(error => {
+                console.log('Error sending email', error);
+            });
+        )
+    }
     const handleRSVP = () => {
         console.log("handleRSVP function called");
-        if (firstName.trim() === "" || lastName.trim() === "") {
+        if (
+            firstName.trim() === "" &&
+            lastName.trim() === "" &&
+            email.trim() === ""
+        ) {
             console.log("First name or last name is missing");
             Alert.alert("Please enter your first and last name");
+            resetForm();
             return;
         }
         if (value === "no") {
@@ -21,31 +49,36 @@ const ReservationScreen = () => {
             Alert.alert(
                 "We're sorry you can't attend, but thank you for letting us know."
             );
+            console.log("form is reset");
+            resetForm();
         } else {
             console.log("Value is yes");
             Alert.alert(`Thank you for RSVPing ${firstName} ${lastName}!`);
+            console.log("form is reset");
+            resetForm();
         }
-        console.log("form is reset");
-        setFirstName("");
-        setLastName("");
     };
 
-    useEffect(() => {
-        console.log("First name and last name updated.");
-    }, [firstName, lastName]);
+    const resetForm = () => {
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setValue("yes");
+    };
 
     return (
         <View>
             <View style={{ justifyContent: "center", alignItems: "center" }}>
                 <Image
-                    source={require("../assets/images/CJ1.jpeg")}
-                    style={{ height: 300, width: 400 }}
+                    source={require("../assets/images/CJ102.jpg")}
+                    style={{ height: 200, width: 300, marginTop: 20 }}
                 />
             </View>
             <View>
                 <View style={{ margin: 10 }} />
                 <Input
                     placeholder="First Name"
+                    value={firstName}
                     leftIcon={{
                         type: "font-awesome",
                         name: "user-o",
@@ -56,6 +89,7 @@ const ReservationScreen = () => {
                 />
                 <Input
                     placeholder="Last Name"
+                    value={lastName}
                     leftIcon={{
                         type: "font-awesome",
                         name: "user-o",
@@ -64,6 +98,27 @@ const ReservationScreen = () => {
                     leftIconContainerStyle={{ paddingRight: 10 }}
                     onChangeText={(lastName) => setLastName(lastName)}
                 />
+                <Input
+                    placeholder="Email Address"
+                    value={email}
+                    leftIcon={{
+                        type: "font-awesome",
+                        name: "envelope-o",
+                        color: "#b8c5d1",
+                    }}
+                    leftIconContainerStyle={{ paddingRight: 10 }}
+                    onChangeText={(email) => setEmail(email)}
+                />
+            </View>
+            <View style={styles.text}>
+                <Text>
+                    The RSVP deadline is TBD. If we do not get an RSVP back by
+                    this date, it will be marked as a "No." We will miss you
+                    celebrating with us, however, we have to provide the total
+                    guest counts to the venue in the timely manner they have
+                    given to us and cannot accept late RSVPs due to this. We
+                    hope that you understand!
+                </Text>
             </View>
             <RadioButton.Group
                 onValueChange={(newValue) => setValue(newValue)}
@@ -77,10 +132,12 @@ const ReservationScreen = () => {
                     value="no"
                 />
             </RadioButton.Group>
-            <RsvpButton
-                title="RSVP"
-                onPress={handleRSVP}
-            />
+            <View style={styles.button}>
+                <RsvpButton
+                    title="RSVP"
+                    onPress={handleRSVP}
+                />
+            </View>
         </View>
     );
 };
@@ -100,8 +157,8 @@ const styles = StyleSheet.create({
         alignSelf: "center",
     },
     text: {
-        fontSize: 15,
-        fontWeight: "bold",
+        alignItems: "center",
+        justifyContent: "center",
     },
     donorId: {
         fontSize: 16,
@@ -111,6 +168,9 @@ const styles = StyleSheet.create({
     iconContainer: {
         alignSelf: "flex-end",
         marginRight: 10,
+    },
+    button: {
+        padding: 20,
     },
 });
 
