@@ -16,63 +16,60 @@ import CustomDrawer from "../components/CustomDrawer";
 const Drawer = createDrawerNavigator();
 
 const screenOptions = {
-  headerTintColor: "#fff",
-  headerStyle: { backgroundColor: "#b8c5d1" },
-  headerShown: true,
+    headerTintColor: "#fff",
+    headerStyle: { backgroundColor: "#b8c5d1" },
+    headerShown: true,
 };
 
 const HomeNavigator = () => {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={({ navigation }) => ({
-          title: "Home",
-          headerLeft: () => (
-            <Icon
-              name="home"
-              type="font-awesome"
-              iconStyle={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={({ navigation }) => ({
+                    title: "Home",
+                    headerLeft: () => (
+                        <Icon
+                            name="home"
+                            type="font-awesome"
+                            iconStyle={styles.stackIcon}
+                            onPress={() => navigation.toggleDrawer()}
+                        />
+                    ),
+                })}
             />
-          ),
-        })}
-      />
-    </Stack.Navigator>
-  );
+        </Stack.Navigator>
+    );
 };
 
 const InfoNavigator = () => {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name="Info"
-        component={InfoScreen}
-        options={({ navigation }) => ({
-          headerLeft: () => (
-            <Icon
-              name="info-circle"
-              type="font-awesome"
-              iconStyle={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name="Info"
+                component={InfoScreen}
+                options={({ navigation }) => ({
+                    headerLeft: () => (
+                        <Icon
+                            name="info-circle"
+                            type="font-awesome"
+                            iconStyle={styles.stackIcon}
+                            onPress={() => navigation.toggleDrawer()}
+                        />
+                    ),
+                })}
             />
-          ),
-        })}
-      />
-    </Stack.Navigator>
-  );
+        </Stack.Navigator>
+    );
 };
 
 const ReservationNavigator = () => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator
-      initialRouteName="Reservation"
-      screenOptions={screenOptions}
-    >
+    <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
         name="Reservation"
         component={ReservationScreen}
@@ -93,49 +90,49 @@ const ReservationNavigator = () => {
 };
 
 const GalleryNavigator = () => {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name="Favorites"
-        component={Gallery}
-        options={({ navigation }) => ({
-          title: "Gallery",
-          headerLeft: () => (
-            <Icon
-              name="camera"
-              type="font-awesome"
-              iconStyle={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name="Favorites"
+                component={Gallery}
+                options={({ navigation }) => ({
+                    title: "Gallery",
+                    headerLeft: () => (
+                        <Icon
+                            name="camera"
+                            type="font-awesome"
+                            iconStyle={styles.stackIcon}
+                            onPress={() => navigation.toggleDrawer()}
+                        />
+                    ),
+                })}
             />
-          ),
-        })}
-      />
-    </Stack.Navigator>
-  );
+        </Stack.Navigator>
+    );
 };
 
 const ContactNavigator = () => {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name="Contact"
-        component={ContactScreen}
-        options={({ navigation }) => ({
-          title: "Contact Us",
-          headerLeft: () => (
-            <Icon
-              name="address-card"
-              type="font-awesome"
-              iconStyle={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name="Contact"
+                component={ContactScreen}
+                options={({ navigation }) => ({
+                    title: "Contact Us",
+                    headerLeft: () => (
+                        <Icon
+                            name="address-card"
+                            type="font-awesome"
+                            iconStyle={styles.stackIcon}
+                            onPress={() => navigation.toggleDrawer()}
+                        />
+                    ),
+                })}
             />
-          ),
-        })}
-      />
-    </Stack.Navigator>
-  );
+        </Stack.Navigator>
+    );
 };
 
 const Main = () => {
@@ -181,7 +178,6 @@ const Main = () => {
           name="Reservation"
           component={ReservationNavigator}
           options={{
-            title: 'Reservation',
             drawerIcon: ({ color }) => (
               <FontAwesome5
                 name="calendar-check"
@@ -223,17 +219,17 @@ const Main = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  stackIcon: {
-    marginLeft: 10,
-    color: "#fff",
-    fontSize: 22,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    stackIcon: {
+        marginLeft: 10,
+        color: "#fff",
+        fontSize: 22,
+    },
 });
 
 export default Main;
