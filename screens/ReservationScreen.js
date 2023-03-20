@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { StyleSheet, View, Text, Image, Alert } from "react-native";
+import { StyleSheet, View, Text, Image, ScrollView, Alert } from "react-native";
 import { Input } from "react-native-elements";
 import { RadioButton } from "react-native-paper";
 import RsvpButton from "../components/rsvpButton";
-import axios from 'axios';
+import * as MailComposer from "expo-mail-composer";
 
 const ReservationScreen = () => {
     const [firstName, setFirstName] = useState("");
@@ -12,26 +12,13 @@ const ReservationScreen = () => {
     const [value, setValue] = useState("yes");
 
     const sendEmail = () => {
-        return(
-            axios.post('https://api.sendgrid.com/v3/mail/send', {
-                personalizations: [{
-                    to: [{ email: `${email}` }],
-                    subject: 'RSVP Confirmation'
-                }],
-                from: { email: 'jordanulves@gmail.com' },
-                content: [{ type: '', value: `Thank you for RSVPing, ${firstName} ${lastName}!` }]
-                }, {
-                headers: {
-                    Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-                    Content-Type:'application/json'
-                }
-                }).then(response => {
-                console.log('Email sent successfully');
-                }).catch(error => {
-                console.log('Error sending email', error);
-            });
-        )
-    }
+        MailComposer.composeAsync({
+            recipients: [`${email}`, "jordanulves@gmail.com"],
+            subject: "Ulves Wedding Invitation",
+            body: "Thank for the Invite",
+        });
+    };
+
     const handleRSVP = () => {
         console.log("handleRSVP function called");
         if (
@@ -50,11 +37,13 @@ const ReservationScreen = () => {
                 "We're sorry you can't attend, but thank you for letting us know."
             );
             console.log("form is reset");
+            sendEmail();
             resetForm();
         } else {
             console.log("Value is yes");
             Alert.alert(`Thank you for RSVPing ${firstName} ${lastName}!`);
             console.log("form is reset");
+            sendEmail();
             resetForm();
         }
     };
@@ -67,7 +56,7 @@ const ReservationScreen = () => {
     };
 
     return (
-        <View>
+        <ScrollView>
             <View style={{ justifyContent: "center", alignItems: "center" }}>
                 <Image
                     source={require("../assets/images/CJ102.jpg")}
@@ -138,7 +127,7 @@ const ReservationScreen = () => {
                     onPress={handleRSVP}
                 />
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
