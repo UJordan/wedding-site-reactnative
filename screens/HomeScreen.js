@@ -1,8 +1,27 @@
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ScrollView, Image, Text } from "react-native";
 import CountdownTimer from "../components/CountdownTimer";
 import RsvpButton from "../components/rsvpButton";
+import * as Font from "expo-font";
 
 const HomeScreen = ({ navigation }) => {
+    const [fontsLoaded, setFontsLoaded] = useState(false);
+
+    useEffect(() => {
+        const loadFonts = async () => {
+            await Font.loadAsync({
+                Malibu: require("../assets/fonts/Malibu.ttf"),
+                Bellfair: require("../assets/fonts/Bellefair.ttf"),
+            });
+            setFontsLoaded(true);
+        };
+        loadFonts();
+    }, []);
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     const handlePressRsvp = () => {
         navigation.navigate("Reservation", { screen: "Reservation" });
     };
@@ -10,12 +29,18 @@ const HomeScreen = ({ navigation }) => {
     return (
         <ScrollView styles={styles.container}>
             <View>
-                <View
-                    style={{ justifyContent: "center", alignItems: "center" }}>
+                <View style={styles.textContainer}>
                     <Image
                         source={require("../assets/images/CJ1.jpeg")}
-                        style={{ height: 300, width: 400 }}
+                        style={styles.image}
                     />
+                    <View style={styles.textbox}>
+                        <Text style={styles.heading}>
+                            Cassidy <Text style={styles.heart}>&#9825;</Text>{" "}
+                            Jordan
+                        </Text>
+                        <Text style={styles.date}>08.19.2023</Text>
+                    </View>
                 </View>
                 <CountdownTimer />
                 <View style={{ paddingTop: 20, paddingBottom: 20 }}>
@@ -205,6 +230,44 @@ const styles = StyleSheet.create({
         width: 150,
         borderRadius: 10,
         marginLeft: 30,
+    },
+    // overlay styling
+    textContainer: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    image: {
+        height: 300,
+        width: 400,
+    },
+    textbox: {
+        backgroundColor: "rgba(184, 197, 209, 0.5)",
+        padding: 20,
+        borderRadius: 10,
+        position: "absolute",
+        zIndex: 1,
+        bottom: 0,
+        width: "100%",
+    },
+    heading: {
+        color: "#FFFFFF",
+        fontSize: 40,
+        fontFamily: "Malibu",
+        textAlign: "center",
+    },
+    heart: {
+        fontSize: 30,
+        fontFamily: "Malibu",
+        textAlign: "center",
+        fontWeight: "100",
+        color: "#FFFFFF",
+    },
+    date: {
+        color: "#FFFFFF",
+        fontSize: 20,
+        fontFamily: "Bellfair",
+        textAlign: "center",
     },
 });
 
